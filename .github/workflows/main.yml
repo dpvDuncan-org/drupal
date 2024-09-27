@@ -34,9 +34,9 @@ jobs:
     - name: Prepare variables
       run: |
         PHP_VERSION=${{ vars.PHP_VERSION }}
-        if [ ${PHP_VERSION} != "" ]
+        if [ "${PHP_VERSION}" != "" ]
         then
-          PHP_VERSION = -php${PHP_VERSION}
+          PHP_VERSION=-php${PHP_VERSION}
         fi
         echo "PHP_VERSION=${PHP_VERSION}" >> ${GITHUB_ENV}
 
