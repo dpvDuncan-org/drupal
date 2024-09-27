@@ -1,6 +1,7 @@
 ARG DRUPAL_VERSION
+ARG PHP_VERSION
 
-FROM drupal:${DRUPAL_VERSION}
+FROM drupal:${DRUPAL_VERSION}${PHP_VERSION}
 
 RUN apt update && apt full-upgrade -y && apt autoremove -y && apt autoclean
 

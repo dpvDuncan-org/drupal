@@ -31,6 +31,15 @@ jobs:
         username: ${{ vars.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Prepare variables
+      run: |
+        PHP_VERSION=${{ vars.PHP_VERSION }}
+        if [ ${PHP_VERSION} != "" ]
+        then
+          PHP_VERSION = -php${PHP_VERSION}
+        fi
+        echo "PHP_VERSION=${PHP_VERSION}" >> ${GITHUB_ENV}
+
     - name: Build
       uses: docker/build-push-action@v5
       with:
@@ -43,3 +52,4 @@ jobs:
         tags: ${{ env.IMAGE_NAME }}
         build-args: |
           DRUPAL_VERSION=${{ vars.DRUPAL_VERSION }}
+          PHP_VERSION=${{ env.PHP_VERSION }}
