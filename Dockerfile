@@ -7,4 +7,4 @@ RUN apt update && apt full-upgrade -y && apt autoremove -y && apt autoclean
 
 RUN apt install unzip
 RUN pecl install apcu
-RUN cd /opt/drupal && composer require drupal/phpmailer_smtp
+RUN cd /opt/drupal && composer require drupal/phpmailer_smtp drush/drush
